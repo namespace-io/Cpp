@@ -39,13 +39,13 @@ class SmartPointer{
         return *this;  
     };
 
-    T& operator->(){
-        assert(ptr == nullptr);
+    T* operator->(){
+        assert(ptr != nullptr);
         return ptr;
     };
 
-    T* operator*(){
-        assert(ptr == nullptr);
+    T& operator*(){
+        assert(ptr != nullptr);
         return *ptr;
     };
 
