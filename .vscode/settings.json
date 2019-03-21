@@ -31,6 +31,16 @@
         "type_traits": "cpp",
         "typeinfo": "cpp",
         "utility": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "atomic": "cpp",
+        "condition_variable": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "fstream": "cpp",
+        "functional": "cpp",
+        "mutex": "cpp",
+        "optional": "cpp",
+        "sstream": "cpp"
     }
 }
