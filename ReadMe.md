@@ -146,3 +146,45 @@ SmartPointer<int> sp2(sp1);
 创建了两个对象，两个对象的引用计数```count```相同，但是当其中一个析构时，另一个对象的引用计数无法改变，离开作用域时便无法析构，所以这里使用指针，通过对同一地址的访问来判断
 
 + 赋值时如```sp1 = sp2```，需要判断```sp1```的引用计数，如果是最后一个持有者，应当释放资源，
+
+### 使用智能指针解决循环引用的问题
+```c++
+#include <iostream>
+#include <memory>
+using namespace std;
+
+class B;
+class A {
+    public:
+    shared_ptr<B> pb; //weak_ptr<B> pb;
+    ~A(){ cout << "A is deconstructed" << endl;}
+};
+
+class B{
+    public:
+    shared_ptr<A> pa; //weak_ptr<A> pa;
+    ~B(){ cout << "B is deconstructed" << endl;}
+};
+
+int main() {
+    shared_ptr<A> a = make_shared<A>();
+    shared_ptr<B> b = make_shared<B>();
+    a->pb = b;
+    b->pa = a;
+    
+    cout << a.use_count() << " - " << b.use_count() << endl;
+    return 0;
+}
+```
+
+使用shared_ptr打印
+```
+2 - 2
+```
+使用weak_ptr打印
+```
+1 - 1
+B is deconstructed
+A is deconstructed
+```
+weak_ptr不改变引用计数
