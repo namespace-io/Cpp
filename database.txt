@@ -1,0 +1,31 @@
+mysql 
+事务
+ACID
+4个隔离级别， 分别怎么实现
+乐观锁和悲观锁及其实现
+死锁，InnoDB 的行锁和表锁
+
+
+mysql的索引：http://blog.codinglabs.org/articles/theory-of-mysql-index.html
+索引的种类，InnoDB的叶子节点的构造，主键索引，secondary index
+B+树，数据库索引，索引是不是越多越好：不是
+索引文件本身要消耗存储空间
+同时索引会加重插入、删除和修改记录时的负担
+另外，MySQL在运行时也要消耗资源维护索引
+
+一般两种情况不建议建索引：
+1. 表的记录较少
+2. 索引的选择性较低。选择性（Selectivity），是指不重复的索引值（也叫基数，Cardinality）与表记录数（#T）的比值：Index Selectivity = Cardinality / #T
+
+3种范式
+
+前缀索引，查询优化的方法
+
+大表的优化：https://www.zhihu.com/question/19719997
+
+join 和 union
+
+
+Nosql: MongoDB, redis 和 mysql 的区别
+redis的5种数据结构，跳跃表，单线程多路复用模型， redis的容灾，扩容可以了解一下，比如主从复制之类的。
+用redis给mysql做缓存
