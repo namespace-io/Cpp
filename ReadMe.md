@@ -67,6 +67,14 @@ int main()
   int* p[1] = {1}; // Yes
   int& q[1] = {a}; // No
   ```
+### 指针与数组的区别
+```c++
+int a[4];
+int* p;
+```
++ 数组名固定,不是变量
++ sizeof(a)返回数组大小, sizeof(p)返回指针大小
++ &a表示指向长度为4的int型数组的指针```int (*p)[4] = &a```
 ### vector，deque与list区别
 [list、vector和deque的区别](https://blog.csdn.net/gogokongyin/article/details/51178378)
 
